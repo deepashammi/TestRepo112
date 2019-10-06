@@ -1,0 +1,37 @@
+1. POST http://rest-server.codegraph-staging.devfactory.com/api/v1.0/accounts/token/
+
+codeserver-cg / codeserver-secret-8902134
+{
+  "username": "brp",
+  "password": "brp"
+}
+
+O/P
+  "accountId": "a-d465b4bb81de7c65c3",
+        "token": "ddc6d8312fd4a16e67f357e054d8af21ef257301"
+2. POST http://rest-server.codegraph-staging.devfactory.com/api/v1.0/codegraph/builds/?token=ddc6d8312fd4a16e67f357e054d8af21ef257301
+{
+  "accountId": "a-d465b4bb81de7c65c3",
+  "language": "Java",
+  "sourceLocation": "https://github.com/trilogy-group/aurea-java-brp-cs-ruletest.git",
+  "runPdg": false,
+  "branch": "master",
+  "commit": "41afa4cec2cb2beadae41bc4a613882930011b5d",
+  "decorators": [  ]
+}
+
+
+o/p
+r-c8131de156a3ea6fcd
+
+
+3. GET http://rest-server.codegraph-staging.devfactory.com/api/v1.0/codegraph/statuses/r-c8131de156a3ea6fcd/?token=ddc6d8312fd4a16e67f357e054d8af21ef257301
+
+O/P
+
+4. GET http://rest-server.codegraph-staging.devfactory.com/api/v1.0/codegraph/builds/r-c8131de156a3ea6fcd/sandbox/activate/?token=ddc6d8312fd4a16e67f357e054d8af21ef257301
+
+5. GET http://rest-server.codegraph-staging.devfactory.com/api/v1.0/codegraph/builds/r-c8131de156a3ea6fcd/sandbox/?token=ddc6d8312fd4a16e67f357e054d8af21ef257301
+
+
+6. POST http://codeserver-framework-dev.devfactory.com/api/v2/codegraph/r-c8131de156a3ea6fcd
